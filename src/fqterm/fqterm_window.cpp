@@ -612,10 +612,12 @@ void FQTermWindow::keyPressEvent(QKeyEvent *keyevent) {
   keyevent->accept();
 
   if (!isConnected()) {
-    if (keyevent->key() == Qt::Key_Return || keyevent->key() == Qt::Key_Enter) {
-      session_->reconnect();
-    }
-    return ;
+      if (keyevent->key() == Qt::Key_Return || keyevent->key() == Qt::Key_Enter) {
+          session_->reconnect();
+      }else if (keyevent->key() == Qt::Key_Space) {
+//          ((FQTermWndMgr*)parent()->parent())->closeWindow(this);
+      }
+      return ;
   }
 
   // stop  the tab blinking
