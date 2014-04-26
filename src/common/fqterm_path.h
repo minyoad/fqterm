@@ -35,7 +35,7 @@ const QString &getPath(PathCategory category);
 
 bool iniSettings();
 
-void checkHelpExists(FQTermConfig*);
+//void checkHelpExists(FQTermConfig*);
 void loadNameList(FQTermConfig *, QStringList &);
 bool loadAddress(FQTermConfig *, int, FQTermParam &);
 void saveAddress(FQTermConfig *, int, const FQTermParam &);

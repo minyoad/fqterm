@@ -1,8 +1,3 @@
-set(fqunite_SRCS
-  fqterm_mini_server.h
-  fqterm_mini_server.cpp
-)
-
 set(fqunite_internal_SRCS
   internal/unite.h
   internal/user.h
@@ -34,7 +29,6 @@ include_directories(
 )
 
 add_library(fqterm_unite
-  ${fqunite_SRCS}
   ${fqunite_internal_SRCS}
 )
 
