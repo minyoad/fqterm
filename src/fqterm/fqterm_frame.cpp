@@ -1408,7 +1408,7 @@ void FQTermFrame::addMainTool() {
   // Spec (5)
 //  toolBarMdiConnectTools_->addAction(getAction(FQTermShortcutHelper::COPYARTICLE));
   toolBarMdiConnectTools_->addAction(getAction(FQTermShortcutHelper::ANTIIDLE));
-  toolBarMdiConnectTools_->addAction(getAction(FQTermShortcutHelper::AUTOREPLY));
+//  toolBarMdiConnectTools_->addAction(getAction(FQTermShortcutHelper::AUTOREPLY));
   toolBarMdiConnectTools_->addAction(getAction(FQTermShortcutHelper::VIEWMESSAGE));
   toolBarMdiConnectTools_->addAction(getAction(FQTermShortcutHelper::IMAGEVIEWER));
   toolBarMdiConnectTools_->addAction(getAction(FQTermShortcutHelper::MOUSESUPPORT));
