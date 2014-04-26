@@ -175,8 +175,8 @@ class FQTermSession: public QObject {
   void setAntiIdle(bool antiIdle);
   void leaveIdle();
 
-  bool isAutoReply();
-  void setAutoReply(bool autoReply);
+//  bool isAutoReply();
+//  void setAutoReply(bool autoReply);
   QString getMessage();
 
   void setAutoReconnect(bool autoReconnect);
@@ -232,7 +232,7 @@ class FQTermSession: public QObject {
 //  void copyArticle();
 
  signals:
-  void messageAutoReplied();
+//  void messageAutoReplied();
   void articleCopied(int state, const QString content);
   void sessionUpdated();
   void connectionClosed();
@@ -251,7 +251,7 @@ class FQTermSession: public QObject {
 private slots:
   void readReady(int size, int raw_size);
   void onIdle();
-  void onAutoReply();
+//  void onAutoReply();
   void onEnqReceived();
   void onSSHAuthOK();
   void setMouseMode(bool on);
@@ -266,7 +266,7 @@ private:
   QByteArray parseString(const QByteArray &cstr, int *len = 0);
   void finalizeConnection();
   bool isPageComplete();
-  void autoReplyMessage();
+//  void autoReplyMessage();
   void reconnectProcess();
   void doAutoLogin();
 
@@ -303,7 +303,7 @@ private:
   FQTermBuffer *termBuffer_;
 
   QTimer *idleTimer_;
-  QTimer *autoReplyTimer_;
+//  QTimer *autoReplyTimer_;
 
   QWaitCondition waitCondition_;
 //  ArticleCopyThread *acThread_;

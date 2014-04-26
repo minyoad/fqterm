@@ -182,9 +182,9 @@ class FQTermParam {
   QString antiIdleMessage_;
   bool isAntiIdle_;
   // wether autoreply
-  bool isAutoReply_;
+//  bool isAutoReply_;
   // Auto Reply Messages
-  QString autoReplyMessage_;
+//  QString autoReplyMessage_;
   // Reconnect When Disconnected By Host
   bool isAutoReconnect_;
   // Reconnect Interval (s)

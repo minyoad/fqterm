@@ -105,7 +105,7 @@ public slots: //script apis
   bool importFile(const QString& filename);
 
   bool isAntiIdle();
-  bool isAutoReply();
+//  bool isAutoReply();
   //auxiliary functions.
   //should be move to some other class.
   //qt script provides so poor extensions to js.

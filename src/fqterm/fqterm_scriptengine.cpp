@@ -492,10 +492,11 @@ void FQTermScriptEngine::setUIEventInterval(int ms) {
 bool FQTermScriptEngine::isAntiIdle() {
   return session_->isAntiIdle();
 }
-
+/*
 bool FQTermScriptEngine::isAutoReply() {
   return session_->isAutoReply();
 }
+*/
 } // namespace FQTerm
 
 #include "fqterm_scriptengine.moc"

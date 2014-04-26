@@ -102,7 +102,7 @@ class FQTermWindow : public QMainWindow,
   //force a repaint by sending a resize event
   void forcedRepaintScreen();
   void viewMessages();
-  void toggleAutoReply();
+//  void toggleAutoReply();
   void toggleAntiIdle();
   void toggleAutoReconnect();
   void setFont(bool isEnglish);
@@ -162,7 +162,7 @@ signals:
 
   void connectionClosed();
 
-  void messageAutoReplied();
+//  void messageAutoReplied();
 
   void pasteHelper(bool);
 

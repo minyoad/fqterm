@@ -124,7 +124,7 @@ FQTermSession::FQTermSession(FQTermConfig *config, FQTermParam param) {
   isMouseX11_ = false;
 
   idleTimer_ = new QTimer;
-  autoReplyTimer_ = new QTimer;
+//  autoReplyTimer_ = new QTimer;
 
 //  acThread_ = new ArticleCopyThread(*this, waitCondition_, bufferWriteLock_);
 
@@ -151,8 +151,8 @@ FQTermSession::FQTermSession(FQTermConfig *config, FQTermParam param) {
                     this, SIGNAL(zmodemStateChanged(int, int, const char *))));
 
   FQ_VERIFY(connect(idleTimer_, SIGNAL(timeout()), this, SLOT(onIdle())));
-  FQ_VERIFY(connect(autoReplyTimer_, SIGNAL(timeout()),
-                    this, SLOT(onAutoReply())));
+//  FQ_VERIFY(connect(autoReplyTimer_, SIGNAL(timeout()),
+//                    this, SLOT(onAutoReply())));
 
 //  FQ_VERIFY(connect(acThread_, SIGNAL(articleCopied(int, const QString)),
 //                    this, SIGNAL(articleCopied(int, const QString))));
@@ -162,7 +162,7 @@ FQTermSession::FQTermSession(FQTermConfig *config, FQTermParam param) {
 
 FQTermSession::~FQTermSession() {
   delete idleTimer_;
-  delete autoReplyTimer_;
+//  delete autoReplyTimer_;
 //  delete acThread_;
   delete termBuffer_;
   delete telnet_;
@@ -849,7 +849,7 @@ void FQTermSession::setAutoReconnect(bool autoReconnect) {
   }
 }
 
-
+/*
 void FQTermSession::autoReplyMessage() {
   if (autoReplyTimer_->isActive()) {
     autoReplyTimer_->stop();
@@ -875,7 +875,7 @@ void FQTermSession::autoReplyMessage() {
 
   emit messageAutoReplied();
 }
-
+*/
 QByteArray FQTermSession::parseString(const QByteArray &cstr, int *len) {
   QByteArray parsed = "";
 
@@ -1050,7 +1050,7 @@ void FQTermSession::readReady(int size, int raw_size) {
 #endif  //HAVE_PYTHON
                                                              );
       }
-
+/*
       if (isAutoReply() && !bellConsumed) {
           // TODO: save messages
           if (isIdling_) {
@@ -1059,6 +1059,7 @@ void FQTermSession::readReady(int size, int raw_size) {
             autoReplyTimer_->start(param_.maxIdleSeconds_ *1000 / 2);
           }
       }
+*/
     }
 
     // set page state
@@ -1142,11 +1143,11 @@ void FQTermSession::finalizeConnection() {
     decoder_->decode(strMsg.toLatin1(), strMsg.length());
   }
   isConnected_ = false;
-
+/*
   if (autoReplyTimer_->isActive()) {
     autoReplyTimer_->stop();
   }
-
+*/
   if (idleTimer_->isActive()) {
     idleTimer_->stop();
   }
@@ -1312,12 +1313,12 @@ QByteArray FQTermSession::unicode2bbs_smart(const QString &text) {
 
 void FQTermSession::onIdle() {
   // do as autoreply when it is enabled
-  if (autoReplyTimer_->isActive() && param_.isAutoReply_) {
+/*  if (autoReplyTimer_->isActive() && param_.isAutoReply_) {
     autoReplyMessage();
     stopAlert();
     return ;
   }
-
+*/
   isIdling_ = true;
   // system script can handle that
   if (scriptListener_) {
@@ -1334,7 +1335,7 @@ void FQTermSession::onIdle() {
   QByteArray cstr = parseString(param_.antiIdleMessage_.toLocal8Bit(), &length);
   telnet_->write(cstr, length);
 }
-
+/*
 void FQTermSession::onAutoReply() {
   // if AutoReply still enabled, then autoreply
   if (param_.isAutoReply_) {
@@ -1356,7 +1357,7 @@ void FQTermSession::setAutoReply(bool on) {
     autoReplyTimer_->stop();
   }
 }
-
+*/
 int FQTermSession::write(const char *data, int len) {
   return telnet_->write(data, len);
 }
@@ -1407,10 +1408,10 @@ void FQTermSession::clearSelect() {
 }
 
 void FQTermSession::leaveIdle() {
-  if (autoReplyTimer_->isActive()) {
+/*  if (autoReplyTimer_->isActive()) {
     autoReplyTimer_->stop();
   }
-
+*/
   if (idleTimer_->isActive()) {
     idleTimer_->stop();
   }

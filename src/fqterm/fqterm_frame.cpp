@@ -1177,13 +1177,13 @@ void FQTermFrame::antiIdle() {
   getAction(FQTermShortcutHelper::ANTIIDLE)->setChecked(
       windowManager_->activeWindow()->getSession()->isAntiIdle());
 }
-
+/*
 void FQTermFrame::autoReply() {
   windowManager_->activeWindow()->toggleAutoReply();
   getAction(FQTermShortcutHelper::AUTOREPLY)->setChecked(
       windowManager_->activeWindow()->getSession()->isAutoReply());
 }
-
+*/
 void FQTermFrame::viewMessages() {
   windowManager_->activeWindow()->viewMessages();
 }
@@ -1566,7 +1566,7 @@ void FQTermFrame::addMainMenu() {
   QMenu *spec = menuMain_->addMenu(tr("&Special"));
 //  FQTERM_ADDACTION(spec, COPYARTICLE, this, copyArticle);
   FQTERM_ADDACTION(spec, ANTIIDLE, this, antiIdle);
-  FQTERM_ADDACTION(spec, AUTOREPLY, this, autoReply);
+//  FQTERM_ADDACTION(spec, AUTOREPLY, this, autoReply);
   FQTERM_ADDACTION(spec, VIEWMESSAGE, this, viewMessages);
   FQTERM_ADDACTION(spec, BEEP, this, beep);
   FQTERM_ADDACTION(spec, MOUSESUPPORT, this, enableMouse);
@@ -1610,7 +1610,7 @@ void FQTermFrame::updateMenuToolBar() {
   getAction(FQTermShortcutHelper::FULLSCREEN)->setChecked(windowState() & Qt::WindowFullScreen);
   getAction(FQTermShortcutHelper::ANSICOLOR)->setChecked(window->getSession()->param().isAnsiColor_);
   getAction(FQTermShortcutHelper::ANTIIDLE)->setChecked(window->getSession()->isAntiIdle());
-  getAction(FQTermShortcutHelper::AUTOREPLY)->setChecked(window->getSession()->isAutoReply());
+//  getAction(FQTermShortcutHelper::AUTOREPLY)->setChecked(window->getSession()->isAutoReply());
   getAction(FQTermShortcutHelper::BEEP)->setChecked(window->getSession()->param().isBeep_);
   getAction(FQTermShortcutHelper::MOUSESUPPORT)->setChecked(window->getSession()->param().isSupportMouse_);
   getAction(FQTermShortcutHelper::AUTORECONNECT)->setChecked(window->getSession()->param().isAutoReconnect_);

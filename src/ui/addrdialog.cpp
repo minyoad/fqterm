@@ -123,8 +123,8 @@ void addrDialog::setParamFromUI() {
   }
   param_.antiIdleMessage_ = ui_.antiLineEdit->text();
   param_.isAntiIdle_ = ui_.antiIdleGroupBox->isChecked();
-  param_.isAutoReply_ = ui_.replyCheckBox->isChecked();
-  param_.autoReplyMessage_ = ui_.replyLineEdit->text();
+//  param_.isAutoReply_ = ui_.replyCheckBox->isChecked();
+//  param_.autoReplyMessage_ = ui_.replyLineEdit->text();
   param_.isAutoReconnect_ = ui_.reconnectCheckBox->isChecked();
   param_.reconnectInterval_ = ui_.reconnectLineEdit->text().toInt();
   param_.retryTimes_ = ui_.retryLineEdit->text().toInt();
@@ -189,9 +189,9 @@ void addrDialog::setUIFromParam() {
   ui_.replykeyLineEdit->setText(param_.replyKeyCombination_);
   ui_.antiLineEdit->setText(param_.antiIdleMessage_);
   ui_.antiIdleGroupBox->setChecked(param_.isAntiIdle_);
-  ui_.replyCheckBox->setChecked(param_.isAutoReply_);
-  ui_.replyLineEdit->setEnabled(param_.isAutoReply_);
-  ui_.replyLineEdit->setText(param_.autoReplyMessage_);
+//  ui_.replyCheckBox->setChecked(param_.isAutoReply_);
+//  ui_.replyLineEdit->setEnabled(param_.isAutoReply_);
+//  ui_.replyLineEdit->setText(param_.autoReplyMessage_);
   ui_.reconnectCheckBox->setChecked(param_.isAutoReconnect_);
   ui_.reconnectLineEdit->setEnabled(param_.isAutoReconnect_);
   ui_.retryLineEdit->setEnabled(param_.isAutoReconnect_);

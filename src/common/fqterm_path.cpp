@@ -352,9 +352,9 @@ bool loadAddress(FQTermConfig *pConf, int n, FQTermParam &param) {
   param.antiIdleMessage_ = pConf->getItemValue(strSection, "antiidlestring");
   strTmp = pConf->getItemValue(strSection, "isantiidle");
   param.isAntiIdle_ = (strTmp != "0");
-  param.autoReplyMessage_ = pConf->getItemValue(strSection, "autoreply");
-  strTmp = pConf->getItemValue(strSection, "bautoreply");
-  param.isAutoReply_ = (strTmp != "0");
+//  param.autoReplyMessage_ = pConf->getItemValue(strSection, "autoreply");
+//  strTmp = pConf->getItemValue(strSection, "bautoreply");
+//  param.isAutoReply_ = (strTmp != "0");
 
   strTmp = pConf->getItemValue(strSection, "reconnect");
   param.isAutoReconnect_ = (strTmp != "0");
@@ -481,8 +481,8 @@ void saveAddress(FQTermConfig *pConf, int n, const FQTermParam &param) {
   pConf->setItemValue(strSection, "replykey", param.replyKeyCombination_);
   pConf->setItemValue(strSection, "antiidlestring", param.antiIdleMessage_);
   pConf->setItemValue(strSection, "isantiidle", param.isAntiIdle_?"1" : "0");
-  pConf->setItemValue(strSection, "bautoreply", param.isAutoReply_ ? "1" : "0");
-  pConf->setItemValue(strSection, "autoreply", param.autoReplyMessage_);
+//  pConf->setItemValue(strSection, "bautoreply", param.isAutoReply_ ? "1" : "0");
+//  pConf->setItemValue(strSection, "autoreply", param.autoReplyMessage_);
   pConf->setItemValue(strSection, "reconnect", param.isAutoReconnect_? "1" : "0");
   strTmp.setNum(param.reconnectInterval_);
   pConf->setItemValue(strSection, "interval", strTmp);

@@ -187,8 +187,8 @@ FQTermWindow::FQTermWindow(FQTermConfig *config, FQTermFrame *frame, FQTermParam
   FQ_VERIFY(connect(session_, SIGNAL(bellReceived()), this, SLOT(beep())));
   FQ_VERIFY(connect(session_, SIGNAL(onTitleSet(const QString&)), this, SLOT(onTitleSet(const QString&))));
 
-  FQ_VERIFY(connect(session_, SIGNAL(messageAutoReplied()),
-                    this, SLOT(messageAutoReplied())));
+//  FQ_VERIFY(connect(session_, SIGNAL(messageAutoReplied()),
+//                    this, SLOT(messageAutoReplied())));
   FQ_VERIFY(connect(session_, SIGNAL(telnetStateChanged(int)),
                     this, SLOT(TelnetState(int))));
   FQ_VERIFY(connect(session_, SIGNAL(errorMessage(QString)),
@@ -1123,11 +1123,11 @@ void FQTermWindow::setting() {
 void FQTermWindow::toggleAntiIdle() {
   session_->setAntiIdle(!session_->isAntiIdle());
 }
-
+/*
 void FQTermWindow::toggleAutoReply() {
   session_->setAutoReply(!session_->isAutoReply());
 }
-
+*/
 void FQTermWindow::toggleAutoReconnect() {
   session_->setAutoReconnect(!session_->param().isAutoReconnect_);
 }
@@ -1242,11 +1242,11 @@ QByteArray FQTermWindow::parseString(const QByteArray &cstr, int *len) {
 
   return parsed;
 }
-
+/*
 void FQTermWindow::messageAutoReplied() {
   pageViewMessage_->display("You have messages", PageViewMessage::Info, 0);
 }
-
+*/
 void FQTermWindow::saveSetting(bool ask /* = true*/) {
   if (addressIndex_ == -1) {
     return ;

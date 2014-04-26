@@ -152,7 +152,7 @@ class FQTermFrame: public QMainWindow {
   void toggleServer(bool on);
   void uiFont();
   void antiIdle();
-  void autoReply();
+//  void autoReply();
   void setting();
   void saveSessionSetting();
   void viewMessages();

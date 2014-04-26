@@ -75,8 +75,8 @@ FQTermParam::FQTermParam() {
   replyKeyCombination_ = "^Z";
   antiIdleMessage_ = "^@";
   isAntiIdle_ = true;
-  isAutoReply_ = false;
-  autoReplyMessage_ = "(FQTerm) Sorry, I am not around";
+//  isAutoReply_ = false;
+//  autoReplyMessage_ = "(FQTerm) Sorry, I am not around";
   isAutoReconnect_ = false;
   reconnectInterval_ = 3;
   retryTimes_ = 0;
@@ -163,8 +163,8 @@ void FQTermParam::copy(const FQTermParam& param) {
   replyKeyCombination_ = param.replyKeyCombination_;
   antiIdleMessage_ = param.antiIdleMessage_;
   isAntiIdle_ = param.isAntiIdle_;
-  isAutoReply_ = param.isAutoReply_;
-  autoReplyMessage_ = param.autoReplyMessage_;
+//  isAutoReply_ = param.isAutoReply_;
+//  autoReplyMessage_ = param.autoReplyMessage_;
   isAutoReconnect_ = param.isAutoReconnect_;
   reconnectInterval_ = param.reconnectInterval_;
   retryTimes_ = param.retryTimes_;
@@ -232,8 +232,8 @@ bool FQTermParam::operator==(const FQTermParam& param)
   if (replyKeyCombination_ != param.replyKeyCombination_) return false;
   if (antiIdleMessage_ != param.antiIdleMessage_) return false;
   if (isAntiIdle_ != param.isAntiIdle_) return false;
-  if (isAutoReply_ != param.isAutoReply_) return false;
-  if (autoReplyMessage_ != param.autoReplyMessage_) return false;
+//  if (isAutoReply_ != param.isAutoReply_) return false;
+//  if (autoReplyMessage_ != param.autoReplyMessage_) return false;
   if (isAutoReconnect_ != param.isAutoReconnect_) return false;
   if (reconnectInterval_ != param.reconnectInterval_) return false;
   if (retryTimes_ != param.retryTimes_) return false;
