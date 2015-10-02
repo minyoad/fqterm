@@ -49,6 +49,7 @@
 #include <QReadLocker>
 #include <QWriteLocker>
 #include <QReadWriteLock>
+#include <ctime>
 
 namespace FQTerm {
 
@@ -974,6 +975,10 @@ void FQTermSession::readReady(int size, int raw_size) {
   raw_data_.resize(raw_size);
   telnet_->read_raw(&raw_data_[0], raw_size);
 
+  if (isLogging) {
+      fwrite(&raw_data_[0], 1, raw_size, logFile);
+  }
+  
   // read raw buffer
   int zmodem_consumed;
   if (param_.enableZmodem_)
@@ -1491,6 +1496,29 @@ void FQTermSession::updateSetting( const FQTermParam& p ) {
     setAutoReconnect(param_.isAutoReconnect_);
 }
 
+    void FQTermSession::startLogging()
+    {
+        time_t timenow = time(NULL);
+        struct tm *ltime = localtime(&timenow);
+        char filename[4096];
+        sprintf(filename, "/tmp/fqterm-%4d-%02d-%02d-%02d:%02d:%02d.log",
+                ltime->tm_year+1900, ltime->tm_mon, ltime->tm_mday,
+                ltime->tm_hour, ltime->tm_min, ltime->tm_sec);
+        logFile = fopen(filename, "wb");
+        if (logFile!=NULL) {
+            isLogging = true;
+        }
+        else {
+            return;
+        }
+    }
+
+    void FQTermSession::stopLogging()
+    {
+        fclose(logFile);
+        isLogging = false;
+    }
+    
 ArticleCopyThread::ArticleCopyThread(
     FQTermSession &bbs, QWaitCondition &waitCondition, QReadWriteLock &bufferLock)
     : session_(bbs),
