@@ -1154,6 +1154,10 @@ void FQTermSession::finalizeConnection() {
     idleTimer_->stop();
   }
 
+  if (isLogging_) {
+      stopLogging();
+  }
+  
   emit connectionClosed();
 }
 
