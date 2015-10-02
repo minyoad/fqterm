@@ -975,7 +975,7 @@ void FQTermSession::readReady(int size, int raw_size) {
   raw_data_.resize(raw_size);
   telnet_->read_raw(&raw_data_[0], raw_size);
 
-  if (isLogging) {
+  if (isLogging_) {
       fwrite(&raw_data_[0], 1, raw_size, logFile);
   }
   
@@ -1506,7 +1506,7 @@ void FQTermSession::updateSetting( const FQTermParam& p ) {
                 ltime->tm_hour, ltime->tm_min, ltime->tm_sec);
         logFile = fopen(filename, "wb");
         if (logFile!=NULL) {
-            isLogging = true;
+            isLogging_ = true;
         }
         else {
             return;
@@ -1516,9 +1516,14 @@ void FQTermSession::updateSetting( const FQTermParam& p ) {
     void FQTermSession::stopLogging()
     {
         fclose(logFile);
-        isLogging = false;
+        isLogging_ = false;
     }
-    
+
+    bool FQTermSession::isLogging()
+    {
+        return isLogging_;
+    }
+        
 ArticleCopyThread::ArticleCopyThread(
     FQTermSession &bbs, QWaitCondition &waitCondition, QReadWriteLock &bufferLock)
     : session_(bbs),

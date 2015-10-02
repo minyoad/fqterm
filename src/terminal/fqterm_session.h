@@ -219,7 +219,8 @@ class FQTermSession: public QObject {
   // raw data logging
   void startLogging();
   void stopLogging();
-  
+  bool isLogging();
+    
  public:
 
 
@@ -316,7 +317,7 @@ private:
   std::vector<char> telnet_data_;
   std::vector<char> raw_data_;
   // raw data logging
-  bool isLogging;
+  bool isLogging_;
   FILE *logFile;
   
   int reconnectRetry_;
