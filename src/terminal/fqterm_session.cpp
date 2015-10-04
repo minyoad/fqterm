@@ -126,7 +126,8 @@ FQTermSession::FQTermSession(FQTermConfig *config, FQTermParam param) {
 
   idleTimer_ = new QTimer;
   autoReplyTimer_ = new QTimer;
-
+  isLogging_ = false;
+  
   acThread_ = new ArticleCopyThread(*this, waitCondition_, bufferWriteLock_);
 
   FQ_VERIFY(connect(decoder_, SIGNAL(mouseMode(bool)),
